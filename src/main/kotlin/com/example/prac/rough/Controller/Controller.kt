@@ -53,7 +53,6 @@ class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRe
         }
         return mutableListOf(0)
     }
-
     var id :Int = 1
 
     @PostMapping("/addUser")
