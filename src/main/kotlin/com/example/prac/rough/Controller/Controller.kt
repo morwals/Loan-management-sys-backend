@@ -6,11 +6,23 @@ import com.example.prac.rough.model.User
 import com.example.prac.rough.repository.LoanRepo
 import com.example.prac.rough.repository.UserRepo
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @CrossOrigin(origins = arrayOf("*"), allowedHeaders = arrayOf("*"))
 class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRepo: LoanRepo) {
+    @GetMapping("/getuser/{id}")
+    fun getUser(@PathVariable id : Int): User? {
+        userRepo.findAll().map {
+            if (it.user_id == id) {
+                println(it.user_id)
+                return it
+            }
+        }
+        return null
+    }
 
     @GetMapping("/getallusers")
     fun getAllUsers(): MutableList<User> {
