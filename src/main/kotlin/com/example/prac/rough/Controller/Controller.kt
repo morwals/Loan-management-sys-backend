@@ -6,11 +6,34 @@ import com.example.prac.rough.model.User
 import com.example.prac.rough.repository.LoanRepo
 import com.example.prac.rough.repository.UserRepo
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @CrossOrigin(origins = arrayOf("*"), allowedHeaders = arrayOf("*"))
 class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRepo: LoanRepo) {
+    @GetMapping("/getuser/{id}")
+    fun getUser(@PathVariable id : Int): User? {
+        userRepo.findAll().map {
+            if (it.user_id == id) {
+                println(it.user_id)
+                return it
+            }
+        }
+        return null
+    }
+
+    @GetMapping("/loandetails/{id}")
+    fun getdetails(@PathVariable id : Int): LoanApplication? {
+        userdetailsRepo.findAll().map {
+            if (it.customer_id == id) {
+                println(it.customer_id)
+                return it
+            }
+        }
+        return null
+    }
 
     @GetMapping("/getallusers")
     fun getAllUsers(): MutableList<User> {
@@ -53,6 +76,9 @@ class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRe
         }
         return mutableListOf(0)
     }
+
+
+
     var id :Int = 1
 
     @PostMapping("/addUser")
@@ -67,7 +93,7 @@ class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRe
         return userdetailsRepo.save(userdetails)
     }
 
-    @GetMapping("/getallUserDetails")
+    @GetMapping("/loanapplications")
     fun getAllUserDetails(): MutableList<LoanApplication> {
         var result=mutableListOf<LoanApplication>()
         userdetailsRepo.findAll().map {
