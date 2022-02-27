@@ -106,18 +106,6 @@ class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRe
         return result
     }
 
-    @PostMapping("/approve/{id}")
-    fun approveLoanApplication(@PathVariable id:Int,@RequestBody approve:Int): String {
-//        userdetailsRepo.findAll().map {
-//            if(it.customer_id == id){
-//                println("id found")
-//                it.approved = approve;
-//                return userdetailsRepo.save(it);
-//            }
-//        }
-//        return null;
-        return "worked"
-    }
 
 
 }
