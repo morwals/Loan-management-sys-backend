@@ -15,8 +15,7 @@ data class LoanApplication(
     val loan_amount:Int,
     val mortage:String,
     val duration:Int,
-    val isAdmin:Int,
-//    val isApproved:Int,
-//    val isRejected:Int,
+    val admin:Int,
+    var approved:Int
 )
 
