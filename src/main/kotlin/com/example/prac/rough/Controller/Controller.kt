@@ -106,16 +106,6 @@ class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRe
         return result
     }
 
-    @PutMapping("/approveLoanApplication")
-    fun approveLoanApplicatino(@RequestBody id:Int): LoanApplication? {
-        userdetailsRepo.findAll().map {
-            if(it.customer_id == id){
-                it.approved = 1;
-                return userdetailsRepo.save(it);
-            }
-        }
-        return null;
-    }
 
 
 }
