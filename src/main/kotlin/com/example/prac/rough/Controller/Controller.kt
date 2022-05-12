@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @CrossOrigin(origins = arrayOf("*"), allowedHeaders = arrayOf("*"))
 class Controller(@Autowired val userRepo: UserRepo, @Autowired val userdetailsRepo: LoanRepo) {
-
+    //sumit
     @GetMapping("/getuser/{id}")
     fun getUser(@PathVariable id : Int): User? {
         userRepo.findAll().map {
