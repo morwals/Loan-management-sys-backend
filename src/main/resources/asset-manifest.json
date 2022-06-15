@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c5b9c1d0.css",
+    "main.js": "/static/js/main.26265f30.js",
+    "static/media/loan1-removebg-preview.png": "/static/media/loan1-removebg-preview.1afb803a8192742b7ac6.png",
+    "index.html": "/index.html",
+    "main.c5b9c1d0.css.map": "/static/css/main.c5b9c1d0.css.map",
+    "main.26265f30.js.map": "/static/js/main.26265f30.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5b9c1d0.css",
+    "static/js/main.26265f30.js"
+  ]
+}
